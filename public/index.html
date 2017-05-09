@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="vote">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="styles.css">
+
+
+</head>
+<!--header-->
+
+<body ng-controller="voteController">
+
+	<!--main-->
+	<div class="container red">
+		<div class="row">
+			<div id="main">
+				<div class="title col-xs-offset-3 col-xs-3">
+					<label for="ex1"> Title: </label>
+					<input class="form-control" id="ex1" ng-model="item.title">
+				</div>
+				<div class="title col-xs-3">
+					<label> Description: </label>
+					<input class="form-control" ng-model="item.desciption">
+				</div>
+				<div class="title col-xs-12">
+					<button class="btn-default" ng-click="submit(item)">click</button>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="container blue">
+		<div class="row">
+		<div class="outputs" ng-repeat="item in votes | orderBy:'-votescount' track by $index">
+			<div class="edits">
+				<div class="edit1">
+					<div>
+					<br>{{item.votescount | vote}}
+
+					<br> {{item.title | title}}
+					<br> {{item.desciption | description}}
+					<br>
+                    </div>  
+                    <br>       
+					<textarea class="form-group" ng-model="comment" row="10" cols="60" placeholder="add comments">
+					<input class="form-control"  placeholder="comments">
+					comments</textarea>
+					<button class="btn" ng-click="addComment(comment, item)">add</button>
+
+					<br>
+					<button ng-click="hidden=!hidden"> <i class="fa fa-comments" aria-hidden="true"></i></button>
+					<br>
+					<div ng-show="hidden" ng-repeat="comment in item.comments track by $index">
+						{{comment | comments}}
+					</div>
+					<br>
+
+					<button ng-click="upvote(item)">       <span class="glyphicon glyphicon-thumbs-up"></span> upvote</button>
+					<button ng-click="downvote(item)"> <span class="glyphicon glyphicon-thumbs-down"></span> downvote</button>
+					<button ng-click="remove($index,item._id)">delete</button>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+	<script src="app.js"></script>
+	<script src="service.js"></script>
+
+
+
+</body>
+
+</html>
