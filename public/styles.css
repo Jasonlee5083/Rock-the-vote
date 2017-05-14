@@ -9,18 +9,11 @@
 
 }
 
-
-
-
 .edits {
 }
 
 .edit1 {
-/*
-	width:100%;
-	margin-left: auto;
-	margin-right: auto;
-*/
+
 	background-color: #d0e1f1;
 	margin:5px;
 	border-radius: 5px;
@@ -36,8 +29,7 @@
 
 }
 .blue {
-/*	background-color: beige;*/
-/*	border: 10px solid white;*/
+
 	margin-top: 10px;
 	
 }

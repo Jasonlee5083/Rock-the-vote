@@ -1,42 +1,5 @@
 var app = angular.module('vote',[]);
 
-app.filter("title",function(){
-	return function(info) {
-		if (info === undefined){
-			return;
-		}
-		return  'Title: ' + info;
-	}
-});
-
-app.filter("description",function(){
-	return function(info) {
-		if (info === undefined){
-			return;
-		}
-		return  'Description: ' + info;
-	}
-});
-
-app.filter("vote",function(){
-	return function(info) {
-		if (info === undefined){
-			return;
-		}
-		return  'Vote: ' + info;
-	}
-});
-
-app.filter("comments",function(){
-	return function(info) {
-		if (info === undefined){
-			return;
-		}
-		return  'Comment: ' + info;
-	}
-});
-
-
 app.controller("voteController", function ($scope, voteService) {
 	
 		$scope.votes = [];
@@ -78,7 +41,43 @@ app.controller("voteController", function ($scope, voteService) {
 
 	$scope.addComment = function(comment,issue) {
 		voteService.addComment(comment,issue);
+		
 	}
 
 })
 
+app.filter("title",function(){
+	return function(info) {
+		if (info === undefined){
+			return;
+		}
+		return  'Title: ' + info;
+	}
+});
+
+app.filter("description",function(){
+	return function(info) {
+		if (info === undefined){
+			return;
+		}
+		return  'Description: ' + info;
+	}
+});
+
+app.filter("vote",function(){
+	return function(info) {
+		if (info === undefined){
+			return;
+		}
+		return  'Vote: ' + info;
+	}
+});
+
+app.filter("comments",function(){
+	return function(info) {
+		if (info === undefined){
+			return;
+		}
+		return  'Comment: ' + info;
+	}
+});
