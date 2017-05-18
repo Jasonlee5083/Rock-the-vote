@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/vote",voteRoute)
 
-app.listen(8000,function() {
+app.listen(2000,function() {
 
 	console.log("server up at 8000")
 });
